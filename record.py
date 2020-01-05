@@ -15,6 +15,9 @@ ap.add_argument("-ww", "--width", required=False,
 ap.add_argument("-hh", "--height", required=False,
                   help="video heigth", default=480)
 
+ap.add_argument("-ss", "--show", required=False,
+                  help="show", default=True)
+
 args = vars(ap.parse_args())
 
 width = args["width"]
@@ -54,7 +57,8 @@ while True:
 		duration += interval
 		print("duration " + str(duration))
 
-	cv2.imshow('record', image)
+	if args["show"]: 
+		cv2.imshow('record', image)
 
 	if ret:
 		m_record_video.do_record_3(image, [])
