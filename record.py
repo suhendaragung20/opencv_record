@@ -54,6 +54,7 @@ while True:
 		duration += interval
 		print("duration " + str(duration))
 
+	cv2.imshow('record', image)
 
 	if ret:
 		m_record_video.do_record_3(image, [])
