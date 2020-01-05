@@ -37,7 +37,8 @@ class manage_record_video:
                                     self.estimate_fps, (frame_width, frame_height))
             # self.out_2 = cv2.VideoWriter('saved_record/hasil_' + str(self.idx_saved) + '_2.avi',
             #                       cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), self.estimate_fps, (frame_width, frame_height))
-
+            with open('saved_record/last_idx.txt', 'w') as f:  # write increment idx last send
+                f.write("%s\n" % (self.idx_saved + 1))
             self.initialed_2 = True
 
 

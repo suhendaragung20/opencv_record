@@ -2,10 +2,30 @@
 import cv2
 from utils import manage_record_video
 import time
+import argparse
 
 
 
-vs = cv2.VideoCapture(0)
+
+ap = argparse.ArgumentParser()
+
+ap.add_argument("-ww", "--width", required=False,
+                  help="video width", default=640)
+
+ap.add_argument("-hh", "--height", required=False,
+                  help="video heigth", default=480)
+
+args = vars(ap.parse_args())
+
+width = args["width"]
+height = args["height"]
+
+
+vs = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+
+vs.set(cv2.CAP_PROP_FRAME_WIDTH, int(width))
+vs.set(cv2.CAP_PROP_FRAME_HEIGHT, int(height))
+
 m_record_video = manage_record_video.manage_record_video()
 
 duration = 0
@@ -26,6 +46,7 @@ while True:
 
 	# if the `q` key was pressed, break from the loop
 	if key == ord("q"):
+
 	    break
 
 	if time.time() - last_durr > interval:
