@@ -16,7 +16,7 @@ ap.add_argument("-hh", "--height", required=False,
                   help="video heigth", default=480)
 
 ap.add_argument("-ss", "--show", required=False,
-                  help="show", default=True)
+                  help="show", default=1)
 
 args = vars(ap.parse_args())
 
@@ -57,7 +57,7 @@ while True:
 		duration += interval
 		print("duration " + str(duration))
 
-	if args["show"]: 
+	if int(args["show"]) == 1: 
 		cv2.imshow('record', image)
 
 	if ret:
