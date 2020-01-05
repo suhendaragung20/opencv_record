@@ -39,6 +39,8 @@ print("start...")
 
 while True:
 
+	tic = time.time()
+	
 	ret, image = vs.read()
 
 	m_record_video.init_video_2(image)
@@ -56,8 +58,11 @@ while True:
 		last_durr = time.time()
 		duration += interval
 		print("duration " + str(duration))
-
+	toc = time.time()
+		
 	if int(args["show"]) == 1: 
+		frame_rate_calc = 1/(toc-tic)
+		cv2.putText(frame,'FPS: {0:.2f}'.format(frame_rate_calc),(30,50),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,0),2,cv2.LINE_AA)
 		cv2.imshow('record', image)
 
 	if ret:
