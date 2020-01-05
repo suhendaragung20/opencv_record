@@ -31,6 +31,7 @@ class manage_record_video:
     def init_video_2(self, frame):
         if self.initialed_2 == False:
             (frame_height, frame_width) = frame.shape[:2]
+            self.idx_saved = self.read_last_saved()
             self.__fourcc = cv2.VideoWriter_fourcc(*'MP4V')
             self.out_2 = cv2.VideoWriter('saved_record/hasil_' + str(self.idx_saved) + '_2.mp4', self.__fourcc, 
                                     self.estimate_fps, (frame_width, frame_height))

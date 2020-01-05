@@ -18,7 +18,6 @@ while True:
 
 	ret, image = vs.read()
 
-	m_record_video.init_video(image)
 	m_record_video.init_video_2(image)
 
 
