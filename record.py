@@ -20,7 +20,7 @@ args = vars(ap.parse_args())
 width = args["width"]
 height = args["height"]
 
-vs = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+vs = cv2.VideoCapture(0)
 #vs = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 #vs.set(cv2.CAP_PROP_FRAME_WIDTH, int(width))
